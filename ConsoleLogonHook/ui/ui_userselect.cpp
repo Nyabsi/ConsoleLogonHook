@@ -211,7 +211,7 @@ DWORD WINAPI TickThread(LPVOID lparam)
 
 void uiUserSelect::InitHooks(uintptr_t baseaddress)
 {
-    UserSelectionView__RuntimeClassInitialize = memory::FindPatternCached<decltype(UserSelectionView__RuntimeClassInitialize)>("UserSelectionView__RuntimeClassInitialize", { "49 8B 4E 78 48 3B CE 74 ?? 48 85 F6 74 14 48 8B 06 48 8B CE 48 8B 40 08 FF 15" },true);
+    UserSelectionView__RuntimeClassInitialize = memory::FindPatternCached<decltype(UserSelectionView__RuntimeClassInitialize)>("UserSelectionView__RuntimeClassInitialize", { "49 8B 4E 78 48 3B CE 74 ?? 48 85 F6 74 14 48 8B 06 48 8B CE 48 8B 40 08 FF 15", "40 55 53 56 57 41 54 41 56 41 57 48 8B EC 48 83 EC 60 48 8B F2 4C 8B F1 4C 8D 79 08 49 8B CF E8 DC AD 00 00 8B D8 45 33 E4 85 C0" },true);
     SelectableUserOrCredentialControl__RuntimeClassInitialize = memory::FindPatternCached<decltype(SelectableUserOrCredentialControl__RuntimeClassInitialize)>("SelectableUserOrCredentialControl__RuntimeClassInitialize", { "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8D 79 58" });
     CredProvSelectionView__RuntimeClassInitialize = memory::FindPatternCached<decltype(CredProvSelectionView__RuntimeClassInitialize)>("CredProvSelectionView__RuntimeClassInitialize", { "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 83 EC 60" });
     //CredProvSelectionView__v_OnKeyInput = memory::FindPatternCached<decltype(CredProvSelectionView__v_OnKeyInput)>("CredProvSelectionView__v_OnKeyInput", { "40 55 53 56 57 41 56 48 8B EC 48 83 EC 20 49 8B F0" });
