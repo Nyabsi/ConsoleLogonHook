@@ -45,5 +45,5 @@ jobs:
       with:
         name: consolelogonhook
         path: |
-          .\Release\
+          .\x64\Release\
 
