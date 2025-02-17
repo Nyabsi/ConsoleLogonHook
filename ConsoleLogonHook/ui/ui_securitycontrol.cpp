@@ -215,10 +215,10 @@ void uiSecurityControl::InitHooks(uintptr_t baseaddress)
     //ConsoleUIView__Initialize = decltype(ConsoleUIView__Initialize)(baseaddress + 0x42710);
     //ConsoleUIView__HandleKeyInput = decltype(ConsoleUIView__HandleKeyInput)(baseaddress + 0x43530);
     
-    void** SecurityOptionControlVtable = (void**)REL(memory::FindPatternCached<uintptr_t>("SecurityOptionControlVtable", { "48 8D 05 ?? ?? ?? ?? 48 83 63 48 00 48 83 63 50 00 48 83 63 58 00 48 83 63 68 00 83 63 70 00 48 89 43 08","48 8D 05 ?? ?? ?? ?? 48 89 43 08 48 8D 05 ?? ?? ?? ?? 48 89 43 30 48 89 6B 48"}), 3);
+    void** SecurityOptionControlVtable = (void**)REL(memory::FindPatternCached<uintptr_t>("SecurityOptionControlVtable", { "48 8D 05 ?? ?? ?? ?? 48 83 63 48 00 48 83 63 50 00 48 83 63 58 00 48 83 63 68 00 83 63 70 00 48 89 43 08","48 8D 05 ?? ?? ?? ?? 48 89 43 08 48 8D 05 ?? ?? ?? ?? 48 89 43 30 48 89 6B 48", "40 28 02 80 01 00 00 00 E0 27 02 80 01 00 00 00 C0 28 02 80 01 00 00 00 70 2A 04 80 01 00 00 00 D0 2A 04" }), 3);
     
     SecurityOptionControl_Destructor = (decltype(SecurityOptionControl_Destructor))(SecurityOptionControlVtable[7]);
-    SecurityOptionsView__RuntimeClassInitialize = memory::FindPatternCached<decltype(SecurityOptionsView__RuntimeClassInitialize)>("SecurityOptionsView__RuntimeClassInitialize", { "55 56 57 41 56 41 57 48 8B EC 48 83 EC 30 49 8B D8","55 56 57 41 56 41 57 48 8B EC 48 83 EC 30" },true);
+    SecurityOptionsView__RuntimeClassInitialize = memory::FindPatternCached<decltype(SecurityOptionsView__RuntimeClassInitialize)>("SecurityOptionsView__RuntimeClassInitialize", { "55 56 57 41 56 41 57 48 8B EC 48 83 EC 30 49 8B D8","55 56 57 41 56 41 57 48 8B EC 48 83 EC 30", "48 89 5C 24 10 4C 89 44 24 18 55 56 57 41 56 41 57", "48 89 5C 24 10 4C 89 44 24 18 55 56 57 41 56 41 57" },true);
     //CredUIManager__ShowCredentialView = memory::FindPatternCached<decltype(CredUIManager__ShowCredentialView)>("CredUIManager__ShowCredentialView", "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8B EC");
     SecurityOptionsView__Destructor = memory::FindPatternCached<decltype(SecurityOptionsView__Destructor)>("SecurityOptionsView__Destructor", { "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 8B F2 48 8B D9 48 8B 79 78 48 83 61 78 00","48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 79 78 8B F2 48 83 61 78 00 48 8B D9"});
 
